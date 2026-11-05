@@ -208,6 +208,37 @@ body.dim .line.kv2{font-family:Jost,"Noto Sans Bengali",sans-serif;font-weight:4
 #et2{animation:in 3s ease 5s both;color:#a9bb7c}
 body.end #fg{animation:zm 40s ease-out forwards}
 @keyframes zm{to{transform:scale(1.15)}}
+/* v6 premium layer */
+#cv{position:absolute;inset:0;width:100%;height:100%}
+#bg{animation:kb 50s ease-in-out infinite alternate}@keyframes kb{to{transform:scale(1.08)}}
+#vg{position:fixed;inset:0;z-index:4;pointer-events:none;background:radial-gradient(120% 100% at 50% 40%,transparent 55%,rgba(40,30,70,.3))}
+body.dim::before,body.dim::after{content:"";position:fixed;left:0;right:0;height:7vh;background:#0c0a1c;z-index:9;animation:bar 1.8s ease both}
+body.dim::before{top:0;transform-origin:top}body.dim::after{bottom:0;transform-origin:bottom}
+@keyframes bar{from{transform:scaleY(0)}}
+.logo{background:linear-gradient(100deg,#5f6f3c 20%,#b9854f 42%,#f0d9a0 50%,#b9854f 58%,#5f6f3c 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;text-shadow:none;animation:shn 6s linear infinite}
+@keyframes shn{to{background-position:-250% 0}}
+#fin h1,.endt h1.logo{text-shadow:none!important}
+.card{position:relative;border:1px solid transparent;background:linear-gradient(rgba(255,255,255,.52),rgba(255,255,255,.4)) padding-box,linear-gradient(135deg,rgba(255,255,255,.95),rgba(185,133,79,.5),rgba(255,255,255,.7)) border-box;box-shadow:0 30px 80px rgba(80,90,130,.28),inset 0 1px 0 rgba(255,255,255,.9)}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%);background-size:250% 100%;animation:swp 7s ease-in-out infinite}
+@keyframes swp{0%{background-position:150% 0}60%,100%{background-position:-100% 0}}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:bs 4.5s ease-in-out infinite}
+@keyframes bs{0%,60%{left:-60%}100%{left:130%}}
+.ch{display:inline-block;white-space:pre;opacity:0;animation:chin .9s ease forwards}
+@keyframes chin{from{opacity:0;transform:translateY(.45em) scale(.9);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+body.dim .stage{animation:zin 18s linear forwards}@keyframes zin{to{transform:scale(1.05)}}
+#veil[data-k=iris]{background:radial-gradient(circle,rgba(255,226,236,.95),rgba(207,200,240,.9))}
+#veil[data-k=iris].go{animation-name:ir}
+@keyframes ir{0%{opacity:1;clip-path:circle(0 at 50% 50%)}45%,70%{opacity:1;clip-path:circle(75% at 50% 50%)}100%{opacity:0;clip-path:circle(75% at 50% 50%)}}
+#ln,#cn{opacity:0;transition:opacity 2s}body.lant #ln,body.cons #cn{opacity:1}
+#ln{position:absolute;inset:0;overflow:hidden}
+.lt{position:absolute;bottom:-12vh;border-radius:8px 8px 12px 12px;background:radial-gradient(#fff6c8,#f2c66b);box-shadow:0 0 34px 12px rgba(255,210,120,.5);animation:lift linear infinite}
+@keyframes lift{to{transform:translate(var(--x),-125vh)}}
+#cn{position:absolute;left:50%;top:32%;width:min(56vmin,360px);transform:translate(-50%,-50%)}
+#cn path{fill:none;stroke:#ffe3ef;stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 6px #ff9ed0)}
+body.cons #cn path{animation:draw 6s ease forwards}@keyframes draw{to{stroke-dashoffset:0}}
+#cn circle{fill:#fff;animation:tw 2s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.ch{animation-duration:.01s}.lt{display:none}}
 /* admin */
 #admin{position:fixed;inset:0;z-index:50;background:var(--warm);display:none;overflow-y:auto;padding:20px 16px 60px}
 #admin.on{display:block}
@@ -243,9 +274,9 @@ body.end #fg{animation:zm 40s ease-out forwards}
 <div class="ground">✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁</div>
 <div class="lamp"></div></div>
 <div class="rays" aria-hidden="true"></div><div id="dim"></div>
-<div id="fg" aria-hidden="true"><svg width="0" height="0" style="position:absolute"><symbol id="fo" viewBox="0 0 200 160"><g fill="#7f9457"><circle cx="30" cy="30" r="46"/><circle cx="90" cy="14" r="34"/><circle cx="40" cy="95" r="30"/><circle cx="130" cy="30" r="22"/></g><g fill="#a3b575"><circle cx="55" cy="50" r="28"/><circle cx="105" cy="40" r="20"/><circle cx="20" cy="75" r="20"/></g><g fill="#fff"><circle cx="60" cy="30" r="7"/><circle cx="100" cy="55" r="6"/><circle cx="25" cy="60" r="6"/><circle cx="140" cy="20" r="5"/></g><g fill="#f4b8cc"><circle cx="40" cy="15" r="6"/><circle cx="75" cy="70" r="6"/><circle cx="115" cy="12" r="5"/><circle cx="50" cy="110" r="5"/></g><g fill="#9db4ea"><circle cx="30" cy="125" r="8"/><circle cx="48" cy="132" r="7"/></g><g fill="#f7d774"><circle cx="60" cy="30" r="2.5"/><circle cx="100" cy="55" r="2.2"/><circle cx="25" cy="60" r="2.2"/></g></symbol><symbol id="cat" viewBox="0 0 120 70"><ellipse cx="60" cy="50" rx="50" ry="18" fill="#fbeee0"/><circle cx="38" cy="38" r="22" fill="#fff4ea"/><path d="M20 24l4-16 14 10zM56 24l-4-16-14 10z" fill="#f3c9a8"/><path d="M28 38q4 4 8 0M42 38q4 4 8 0" stroke="#7a5a45" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="26" cy="45" r="4" fill="#f6b3be" opacity=".7"/><circle cx="50" cy="45" r="4" fill="#f6b3be" opacity=".7"/><path d="M85 42q25-6 30 8" stroke="#f3c9a8" stroke-width="9" fill="none" stroke-linecap="round"/></symbol></svg><svg class="fol tl" viewBox="0 0 200 160"><use href="#fo"/></svg><svg class="fol tr" viewBox="0 0 200 160"><use href="#fo"/></svg><svg class="fol bl" viewBox="0 0 200 160"><use href="#fo"/></svg><svg class="fol br" viewBox="0 0 200 160"><use href="#fo"/></svg><svg class="cat" viewBox="0 0 120 70"><use href="#cat"/></svg><div id="moon"><svg viewBox="0 0 100 60"><circle cx="24" cy="20" r="8" fill="#473a60"/><path d="M8 60q0-28 16-28t16 28z" fill="#473a60"/><circle cx="54" cy="22" r="8" fill="#2b2140"/><path d="M38 60q0-26 16-26t16 26z" fill="#2b2140"/></svg></div><div id="fx"></div></div>
+<div id="fg" aria-hidden="true"><canvas id="cv"></canvas><div id="ln"></div><svg id="cn" viewBox="0 0 200 180"><path pathLength="1" d="M100 170C20 110 8 70 8 48 8 22 28 8 52 8c22 0 40 12 48 30 8-18 26-30 48-30 24 0 44 14 44 40 0 22-12 62-92 122z"/><circle cx="8" cy="48" r="2"/><circle cx="52" cy="8" r="2"/><circle cx="100" cy="38" r="2"/><circle cx="148" cy="8" r="2"/><circle cx="192" cy="48" r="2"/><circle cx="100" cy="170" r="2.4"/></svg><svg width="0" height="0" style="position:absolute"><symbol id="fo" viewBox="0 0 200 160"><g fill="#7f9457"><circle cx="30" cy="30" r="46"/><circle cx="90" cy="14" r="34"/><circle cx="40" cy="95" r="30"/><circle cx="130" cy="30" r="22"/></g><g fill="#a3b575"><circle cx="55" cy="50" r="28"/><circle cx="105" cy="40" r="20"/><circle cx="20" cy="75" r="20"/></g><g fill="#fff"><circle cx="60" cy="30" r="7"/><circle cx="100" cy="55" r="6"/><circle cx="25" cy="60" r="6"/><circle cx="140" cy="20" r="5"/></g><g fill="#f4b8cc"><circle cx="40" cy="15" r="6"/><circle cx="75" cy="70" r="6"/><circle cx="115" cy="12" r="5"/><circle cx="50" cy="110" r="5"/></g><g fill="#9db4ea"><circle cx="30" cy="125" r="8"/><circle cx="48" cy="132" r="7"/></g><g fill="#f7d774"><circle cx="60" cy="30" r="2.5"/><circle cx="100" cy="55" r="2.2"/><circle cx="25" cy="60" r="2.2"/></g></symbol><symbol id="cat" viewBox="0 0 120 70"><ellipse cx="60" cy="50" rx="50" ry="18" fill="#fbeee0"/><circle cx="38" cy="38" r="22" fill="#fff4ea"/><path d="M20 24l4-16 14 10zM56 24l-4-16-14 10z" fill="#f3c9a8"/><path d="M28 38q4 4 8 0M42 38q4 4 8 0" stroke="#7a5a45" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="26" cy="45" r="4" fill="#f6b3be" opacity=".7"/><circle cx="50" cy="45" r="4" fill="#f6b3be" opacity=".7"/><path d="M85 42q25-6 30 8" stroke="#f3c9a8" stroke-width="9" fill="none" stroke-linecap="round"/></symbol></svg><svg class="fol tl" viewBox="0 0 200 160"><use href="#fo"/></svg><svg class="fol tr" viewBox="0 0 200 160"><use href="#fo"/></svg><svg class="fol bl" viewBox="0 0 200 160"><use href="#fo"/></svg><svg class="fol br" viewBox="0 0 200 160"><use href="#fo"/></svg><svg class="cat" viewBox="0 0 120 70"><use href="#cat"/></svg><div id="moon"><svg viewBox="0 0 100 60"><circle cx="24" cy="20" r="8" fill="#473a60"/><path d="M8 60q0-28 16-28t16 28z" fill="#473a60"/><circle cx="54" cy="22" r="8" fill="#2b2140"/><path d="M38 60q0-26 16-26t16 26z" fill="#2b2140"/></svg></div><div id="fx"></div></div>
 
-<main>
+<div id="vg"></div><main>
 <section id="form" class="screen on"><div class="card">
 <h1 class="logo">Waisuuu ♡</h1><p class="sub">Tomar kotha gulo ektu bolo...</p>
 <form id="pf" novalidate><div class="grid" id="fields"></div>
@@ -259,11 +290,11 @@ body.end #fg{animation:zm 40s ease-out forwards}
 <div style="text-align:center;margin-top:10px"><button class="btn" id="qsend">Send to your husband ♡</button></div></div></section>
 
 <section id="send" class="screen"><div class="sw"><div id="sbox"><span class="se se1">✉️</span><span class="se se2">♥</span><span class="se se3">🌸</span></div><p class="line">Sending your answers... ♡</p></div></section>
+<section id="fin" class="screen"><div class="endt"><div class="bh">♥</div><h1 class="logo" id="ft">Waisuuu ♡</h1><p class="line kv2" id="ft2">Tmk bisonn bahbe valobashi ♡</p></div></section>
 <section id="end" class="screen"><div class="endt"><div class="bh">♥</div><h1 id="et">Tmk bisonn bahbe valobashiiiiiii waisuuuuuuu... ♡</h1><p class="line sm" id="et2">Thank you for being here, Waisuuu.</p></div></section>
 </main>
 
 <div id="veil" aria-hidden="true"><svg class="vh" viewBox="0 0 200 180"><defs><radialGradient id="hg" cx="40%" cy="30%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#f7b6d8" stop-opacity=".55"/></radialGradient></defs><path d="M100 175C20 115 0 75 0 48 0 20 22 4 48 4c24 0 44 14 52 34 8-20 28-34 52-34 26 0 48 16 48 44 0 27-20 67-100 127z" fill="url(#hg)" stroke="#fff" stroke-width="3"/><path d="M-10 112q110 40 220-22" stroke="#f9c7de" stroke-width="7" fill="none" stroke-linecap="round"/></svg><svg class="vc" viewBox="0 0 120 70"><use href="#cat"/></svg><div id="vl"></div></div>
-<button id="snd" aria-label="Toggle sound" aria-pressed="false">♪</button>
 <div id="toast" role="status"></div>
 
 <div id="admin" data-t="u" aria-label="Admin panel"><div class="wrap">
@@ -306,11 +337,14 @@ async function saveQuestions(){const o={};document.querySelectorAll("#qed textar
 /* ---------- sound ---------- */
 let AC,master,muted=false;
 function audio(){if(AC)return;try{AC=new(window.AudioContext||window.webkitAudioContext)();master=AC.createGain();master.gain.value=.12;master.connect(AC.destination);
- const amb=AC.createGain();amb.gain.value=.05;amb.connect(master);[196,247,294,392].forEach((f,i)=>{const o=AC.createOscillator(),l=AC.createOscillator(),lg=AC.createGain();o.frequency.value=f;l.frequency.value=.05+i*.03;lg.gain.value=3;l.connect(lg);lg.connect(o.frequency);o.connect(amb);o.start();l.start()})}catch(e){console.warn(e)}}
+ const amb=AC.createGain();amb.gain.value=.05;amb.connect(master);[].forEach((f,i)=>{const o=AC.createOscillator(),l=AC.createOscillator(),lg=AC.createGain();o.frequency.value=f;l.frequency.value=.05+i*.03;lg.gain.value=3;l.connect(lg);lg.connect(o.frequency);o.connect(amb);o.start();l.start()})}catch(e){console.warn(e)}}
 function tone(f,d=.15,v=.3,type="sine",w=0){if(!AC)return;const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime+w;o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(master);o.start(t);o.stop(t+d+.05)}
 const sfx={click:()=>tone(660,.12,.3),tick:()=>tone(1500+Math.random()*300,.03,.08),heart:()=>{tone(523,.5,.25);tone(784,.7,.2,"sine",.12)},whoosh:()=>tone(180,1.6,.15,"triangle"),final:()=>[523,659,784,1046].forEach((f,i)=>tone(f,1.6,.2,"sine",i*.25))};
-["pointerdown","keydown"].forEach(e=>addEventListener(e,audio,{once:true}));
-$("#snd").onclick=()=>{audio();muted=!muted;if(master)master.gain.value=muted?0:.12;$("#snd").setAttribute("aria-pressed",muted);$("#snd").textContent=muted?"✕":"♪"};
+const SONG=new Audio();SONG.loop=true;SONG.volume=.55;SONG.preload="auto";
+const SRC=[encodeURI("Ektukhani Mon _ Full Song _ Daagi _ Afran Nisho,Tama_ Tahsan,Masha _ Shihab S _ SVF Alpha-i_ Chorki.mp3"),"song.mp3"];let si=0;SONG.src=SRC[0];SONG.onerror=()=>{if(++si<SRC.length)SONG.src=SRC[si]};
+function startSong(){if(!SONG.paused)return;try{const q=SONG.play();if(q&&q.catch)q.catch(()=>{})}catch(e){}}
+["pointerdown","click","touchend","keydown"].forEach(e=>addEventListener(e,()=>{audio();startSong()},{passive:true}));
+
 
 /* ---------- ambience ---------- */
 function startRain(){const c=$("#fx");if(RM)return;for(let i=0;i<40;i++){const d=document.createElement("div");d.className="rd";d.style.cssText=`left:${Math.random()*100}%;animation-duration:${2.4+Math.random()*2}s;animation-delay:-${Math.random()*4}s;opacity:${.3+Math.random()*.5}`;c.appendChild(d)}}
@@ -327,7 +361,8 @@ function buildVeil(){const v=$("#veil"),mk=(c,t,n,f)=>{const d=document.createEl
  mk("lw","🌸",20,i=>`left:${i*5}%;animation-delay:${(i%10)*.12}s`)}
 async function reveal(p,t,m){if(m==="words"){for(const w of t.split(/(\s+)/)){const e=document.createElement("span");e.className="wd";e.textContent=w;p.appendChild(e);if(w.trim()){sfx.tick();await sleep(RM?4:170)}}await sleep(RM?0:900)}
  else if(m){p.textContent=t;p.classList.add({lines:"sl",blur:"bl",neon:"nn"}[m]);sfx.tick();await sleep(RM?0:1700)}else await type(p,t)}
-async function type(el,txt){el.classList.add("typing");for(let i=0;i<txt.length;i++){el.textContent+=txt[i];if(i%3===0)sfx.tick();await sleep(RM?4:txt[i]==="\n"?420:52)}el.classList.remove("typing")}
+async function type(el,txt){let i=0;for(const w of txt.split(/(\s+)/)){if(/^\s+$/.test(w)||!w){el.appendChild(document.createTextNode(w));continue}const ws=document.createElement("span");ws.style.whiteSpace="nowrap";for(const ch of w){const c=document.createElement("span");c.className="ch";c.textContent=ch;c.style.animationDelay=(RM?0:i++*45)+"ms";ws.appendChild(c)}el.appendChild(ws)}
+ const tk=setInterval(sfx.tick,190);await sleep(RM?50:i*45+700);clearInterval(tk)}
 async function showMessage(lines,btns,hold=2200,m={}){const sg=$("#stage");sg.classList.remove("on");void sg.offsetWidth;sg.dataset.a=m.a||"rise";sg.firstElementChild.dataset.d=m.d||"";showScreen("stage");const box=$("#msgs"),bb=$("#btns");box.innerHTML="";bb.innerHTML="";await sleep(900);
  for(const l of lines){const o=typeof l==="string"?{t:l}:l,p=document.createElement("p");p.className="line "+(o.c||"");box.appendChild(p);await reveal(p,o.t,m.r);await sleep(o.p||800)}
  const h=document.createElement("span");h.className="hb";h.textContent="♡";box.appendChild(h);sfx.heart();
@@ -361,15 +396,15 @@ async function flow(){let s=S.step;const B=document.body.classList;if(s===7)B.ad
   if(r==="NO"){await showMessage([{t:"Thik ache... tmi jokhon ready hobe, ami ekhanei achi ♡",c:"kv2"}],null,3500,{a:"fade",r:"blur"});st(9)}else st(8)}
  if(S.step===8){B.remove("dim");await playTransition(4000,"","bloom");buildQs();showScreen("qs");let o;
   for(;;){o=await new Promise(r=>{window.__qdone=r});try{await sendAnswers(o);break}catch(e){console.error(e);toast(OOPS);S.busy=false;$("#qsend").disabled=false;showScreen("qs")}}st(9)}
- if(S.step===9){B.add("dim");await playTransition(5000,"","night");await showMessage([{t:"Kivabe je ki hoiya gelo... haha ♡",p:2200,c:"kv"},{t:"But at last...",p:1800,c:"kv2"},{t:"Valoi laglo tmk bisonn bahbe... ♡",p:1500,c:"kv"}],null,3500,{a:"fade",r:"blur"});st(10)}
+ if(S.step===9){B.add("dim");await playTransition(5000,"","iris");await showMessage([{t:"Kivabe je ki hoiya gelo... haha ♡",p:2200,c:"kv"},{t:"But at last...",p:1800,c:"kv2"},{t:"Valoi laglo tmk bisonn bahbe... ♡",p:1500,c:"kv"}],null,3500,{a:"fade",r:"blur"});st(10)}
  if(S.step===10){B.add("dim");await playTransition(6000,"","rise");await showMessage([{t:"Tmk bisonn bahbe\nvalobashiiiiiii waisuuuuuuu.",c:"kv big",p:1800},{t:"You know?",c:"kv2",p:1200}],null,2500,{a:"focus",r:"blur"});st(11)}
- if(S.step===11){B.add("dim");await playTransition(3500,"","fly");const r=await showMessage([{t:"Tumi ki eta jano?",c:"kv"}],YN,2200,{a:"fade",r:"blur"});await saveResponse("finalAnswer",r);st(12)}
- if(S.step>=12){B.add("dim");if(s<12)await playTransition(8000,"","rise");ending()}}
+ if(S.step===11){B.add("dim");await playTransition(3500,"","fly");const r=await showMessage([{t:"Tumi ki eta jano?",c:"kv"}],YN,2200,{a:"fade",r:"blur"});await saveResponse("finalAnswer",r);SS.wfin=r;st(12)}
+ if(S.step>=12){B.add("dim");if(s<12)await playTransition(8000,"","rise");await endings(SS.wfin)}}
 async function sendAnswers(o){showScreen("send");sfx.heart();await Promise.all([(async()=>{await set(ref(db,`submissions/${S.id}/questions`),o);await update(ref(db,`submissions/${S.id}/meta`),{updatedAt:Date.now()})})(),sleep(RM?800:3300)])}
 function buildQs(){$("#ql").innerHTML=S.q.map((q,i)=>`<div class="q"><p id="qt${i}">${esc(q)}</p><textarea id="qa${i}" aria-labelledby="qt${i}" rows="2" placeholder="Tomar answer..."></textarea></div>`).join("")}
 $("#qsend").onclick=()=>{if(S.busy)return;const a=S.q.map((_,i)=>$("#qa"+i).value.trim());if(a.some(x=>!x)){$("#qmsg").textContent="Please answer all 5 ♡";return}
  $("#qmsg").textContent="";S.busy=true;$("#qsend").disabled=true;sfx.click();const o={};S.q.forEach((q,i)=>o["q"+(i+1)]={question:q,answer:a[i]});window.__qdone(o)};
-function ending(){document.body.classList.add("end","dim");showScreen("end");sfx.final();st(12)}
+function ending(){document.body.classList.add("dim");endings(SS.wfin)}
 
 /* ---------- admin ---------- */
 let SUB={},aOn=false,known=-1,unsub;
@@ -408,9 +443,23 @@ addEventListener("keydown",e=>{if(e.key==="Escape"){$("#modal").classList.remove
  if(e.key.toLowerCase()!=="p"||e.repeat||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const n=Date.now();if(n-(keydown.t||0)<500&&!aOn)openAdmin();keydown.t=n});
 function keydown(){}
 
+const ENDL={YES:"Jani... tai to tmk eto valobashi ♡",NO:"Na jano tao... ami roj bolbo ♡"};
+async function endings(r){const B=document.body.classList;B.add("end","dim");showScreen("end");sfx.final();await sleep(RM?500:16000);
+ B.add("lant");await showMessage([{t:ENDL[r]||ENDL.YES,c:"kv",p:1800},{t:"Tumi sobsomoy amar pashe thakbe ♡",c:"kv2"}],null,7000,{a:"focus",r:"blur"});B.remove("lant");
+ B.add("cons");await showMessage([{t:"Ei golpo ta shesh na... shuru ♡",c:"kv",p:1800},{t:"Waisuuu ♡",c:"kv big"}],null,8000,{a:"fade",r:"blur"});B.remove("cons");
+ showScreen("fin");sfx.final();st(12)}
+function buildLanterns(){const l=$("#ln");for(let i=0;i<10;i++){const e=document.createElement("i");e.className="lt";e.style.cssText=`left:${5+i*10}%;width:${20+i%3*8}px;height:${26+i%3*10}px;--x:${(i%2?-1:1)*(10+i*4)}px;animation-duration:${14+i%4*3}s;animation-delay:-${i*1.7}s`;l.appendChild(e)}}
+function startCanvas(){const c=$("#cv"),x=c.getContext&&c.getContext("2d");if(RM||!x)return;const P=[],col=["255,214,226","207,228,241","255,236,190","214,226,180"];
+ const rs=()=>{const d=Math.min(devicePixelRatio||1,1.5);c.width=innerWidth*d;c.height=innerHeight*d;x.setTransform(d,0,0,d,0,0)};rs();addEventListener("resize",rs);
+ for(let i=0;i<70;i++){const k=i<24?0:i<48?1:2;P.push({k,x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:k===0?14+Math.random()*30:k===1?5+Math.random()*7:1.5+Math.random()*1.5,s:.1+Math.random()*.35,a:Math.random()*6.28,c:col[i%4]})}
+ (function f(t){requestAnimationFrame(f);if(document.hidden)return;x.clearRect(0,0,innerWidth,innerHeight);const dim=document.body.classList.contains("dim");
+  for(const p of P){p.a+=.004;p.y-=p.s*(p.k===1?1.4:.6);p.x+=Math.sin(p.a+p.y*.01)*.4;if(p.y<-60){p.y=innerHeight+60;p.x=Math.random()*innerWidth}
+   if(p.k===0){const g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,`rgba(${p.c},${dim?.2:.3})`);g.addColorStop(1,`rgba(${p.c},0)`);x.fillStyle=g;x.beginPath();x.arc(p.x,p.y,p.r,0,6.3);x.fill()}
+   else if(p.k===1){x.save();x.translate(p.x,p.y);x.rotate(p.a*2);x.fillStyle=`rgba(${p.c},.75)`;x.beginPath();x.ellipse(0,0,p.r,p.r*.55,0,0,6.3);x.fill();x.restore()}
+   else{x.fillStyle=`rgba(255,230,160,${.5+.5*Math.sin(t/400+p.a*5)})`;x.shadowColor="rgba(255,220,120,.9)";x.shadowBlur=10;x.beginPath();x.arc(p.x,p.y,p.r,0,6.3);x.fill();x.shadowBlur=0}}})(0)}
 /* ---------- boot ---------- */
 const safe=f=>{try{f()}catch(e){console.error(e)}};
-buildForm();showScreen("form");safe(buildVeil);safe(startRain);safe(startParticles);initFirebase().then(loadQuestions);
+buildForm();showScreen("form");safe(buildVeil);safe(startRain);safe(startCanvas);safe(buildLanterns);initFirebase().then(loadQuestions);
 safe(()=>{history.pushState(null,"",location.href);addEventListener("popstate",()=>history.pushState(null,"",location.href))});
 if(S.id&&S.step>=1){if(S.step<=1)S.step=2;S.busy=false;S.step>=12?ending():(S.step===8?(buildQs(),flow()):flow())}else showScreen("form");
 </script></body></html>
