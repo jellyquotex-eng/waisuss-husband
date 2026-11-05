@@ -190,6 +190,24 @@ kbd{background:#fff;border-radius:5px;padding:0 6px;border:1px solid #ccc}
 #admin[data-t=s] :is(.ed,.ctl,#list){display:none}#admin[data-t=q] :is(#stats,.ctl,#list){display:none}#admin[data-t=u] :is(#stats,.ed){display:none}
 @media(max-width:560px){.r3{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.lp,.lf,.lh,.ls,.lw{display:none!important}}
+.line.kv{font-family:Jost,"Noto Sans Bengali",sans-serif;font-weight:400;font-size:clamp(1.4rem,5vw,2.2rem);color:#f5f1ea;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.line.kv2{font-family:Jost,"Noto Sans Bengali",sans-serif;font-weight:400;font-size:clamp(1.2rem,4.4vw,1.8rem);color:#a9bb7c;text-shadow:0 2px 14px rgba(0,0,0,.35);font-style:normal}
+.line.kv.big{font-size:clamp(2rem,7.5vw,3.4rem);text-shadow:0 0 26px rgba(246,221,224,.55)}
+body.dim .line.kv{font-family:Jost,"Noto Sans Bengali",sans-serif;font-weight:400;font-size:clamp(1.4rem,5vw,2.2rem);color:#f5f1ea;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+body.dim .line.kv.big{font-size:clamp(2rem,7.5vw,3.4rem)}
+body.dim .line.kv2{font-family:Jost,"Noto Sans Bengali",sans-serif;font-weight:400;font-size:clamp(1.2rem,4.4vw,1.8rem);color:#a9bb7c;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.sw{margin:auto;text-align:center}
+#sbox{position:relative;height:150px}
+.se{position:absolute;left:50%;top:50%;font-size:4.4rem;opacity:0;transform:translate(-50%,-50%)}
+.se2{color:#e58fa8;filter:drop-shadow(0 0 22px rgba(255,170,200,.9))}
+.se1{animation:s1 3.2s ease both}.se2{animation:s2 3.2s ease both}.se3{animation:s3 3.2s ease both}
+@keyframes s1{0%{opacity:0;transform:translate(-50%,-30%) rotate(-8deg)}15%,32%{opacity:1;transform:translate(-50%,-50%)}45%,100%{opacity:0;transform:translate(-50%,-90%) scale(.5)}}
+@keyframes s2{0%,30%{opacity:0;transform:translate(-50%,-50%) scale(.3)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}68%{opacity:1;transform:translate(-50%,-50%) scale(1)}78%,100%{opacity:0;transform:translate(-50%,-50%) scale(1.8)}}
+@keyframes s3{0%,70%{opacity:0;transform:translate(-50%,-50%) scale(.2)}85%{opacity:1;transform:translate(-50%,-60%) scale(1.2) rotate(60deg)}100%{opacity:.9;transform:translate(-50%,-70%) scale(1.4) rotate(120deg)}}
+#et{font-size:clamp(1.5rem,5.6vw,2.6rem);line-height:1.35;max-width:90vw;margin:-6vmin auto 0;animation:in 3s ease 1.6s both}
+#et2{animation:in 3s ease 5s both;color:#a9bb7c}
+body.end #fg{animation:zm 40s ease-out forwards}
+@keyframes zm{to{transform:scale(1.15)}}
 /* admin */
 #admin{position:fixed;inset:0;z-index:50;background:var(--warm);display:none;overflow-y:auto;padding:20px 16px 60px}
 #admin.on{display:block}
@@ -238,9 +256,10 @@ kbd{background:#fff;border-radius:5px;padding:0 6px;border:1px solid #ccc}
 
 <section id="qs" class="screen"><div class="card"><h2 style="text-align:center;font-size:1.9rem;margin-bottom:16px">Tomar jonno amar 5 ta question ache... ♡</h2>
 <div id="ql"></div><div class="msg" id="qmsg" role="alert"></div>
-<div style="text-align:center;margin-top:10px"><button class="btn" id="qsend">Send to Waisuuu ♡</button></div></div></section>
+<div style="text-align:center;margin-top:10px"><button class="btn" id="qsend">Send to your husband ♡</button></div></div></section>
 
-<section id="end" class="screen"><div class="endt"><div class="bh">♥</div><h1>Waisuuu ♡</h1><p class="line sm" style="margin-top:10px">Tmk bisonn bahbe valobashi ♡</p></div></section>
+<section id="send" class="screen"><div class="sw"><div id="sbox"><span class="se se1">✉️</span><span class="se se2">♥</span><span class="se se3">🌸</span></div><p class="line">Sending your answers... ♡</p></div></section>
+<section id="end" class="screen"><div class="endt"><div class="bh">♥</div><h1 id="et">Tmk bisonn bahbe valobashiiiiiii waisuuuuuuu... ♡</h1><p class="line sm" id="et2">Thank you for being here, Waisuuu.</p></div></section>
 </main>
 
 <div id="veil" aria-hidden="true"><svg class="vh" viewBox="0 0 200 180"><defs><radialGradient id="hg" cx="40%" cy="30%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#f7b6d8" stop-opacity=".55"/></radialGradient></defs><path d="M100 175C20 115 0 75 0 48 0 20 22 4 48 4c24 0 44 14 52 34 8-20 28-34 52-34 26 0 48 16 48 44 0 27-20 67-100 127z" fill="url(#hg)" stroke="#fff" stroke-width="3"/><path d="M-10 112q110 40 220-22" stroke="#f9c7de" stroke-width="7" fill="none" stroke-linecap="round"/></svg><svg class="vc" viewBox="0 0 120 70"><use href="#cat"/></svg><div id="vl"></div></div>
@@ -324,31 +343,33 @@ $("#pf").addEventListener("submit",async e=>{e.preventDefault();if(S.busy)return
  F.forEach(([k])=>{const el=$("#f_"+k),v=el.value.trim();p[k]=v;const w=el.parentElement;w.classList.toggle("bad",!v);el.setAttribute("aria-invalid",!v);if(!v&&!bad)bad=el});
  if(bad){$("#fmsg").textContent="Please fill every field ♡";bad.focus();return}
  $("#fmsg").textContent="";S.busy=true;const b=$("#sub");b.disabled=true;b.textContent="Saving...";sfx.click();
- try{S.id=await createSubmission(p);SS.wid=S.id;st(1);flow()}catch(err){console.error(err);$("#fmsg").textContent=OOPS;b.disabled=false;b.textContent="Submit ♡";S.busy=false}});
+ try{S.id=await createSubmission(p);SS.wid=S.id;st(1);S.busy=false;flow()}catch(err){console.error(err);$("#fmsg").textContent=OOPS;b.disabled=false;b.textContent="Submit ♡";S.busy=false}});
 
 /* ---------- story flow ---------- */
-const M1="Tomar kache last ekta request, shthno pakhi jibon e ji, hoye jak na keno amk konodin chere jeyo na :)";
+const M1="shuno pakhii, jibone jai e hoye jak na kn, kohono caira jaiyo naaa ,";
 const M2="Amar bisshash\nTumi amake kokhono chere jabe-!\nna Ar oi bisshash rakhar dayitto kintu tomar...!!";
 const M3="Tomar sathe sobar tulona hoy na,\ntumi to amar kache hazar noy lakhe noy puro prithibi jure ekjon...!!";
 const M4="Age kokhono vabini,\nhut kore eshe tumi amar life e etota important hoye jabe..!!";
-async function flow(){let s=S.step;if(s>=6)document.body.classList.add("dim");
+async function flow(){let s=S.step;const B=document.body.classList;if(s===7)B.add("dim");
  if(s<=1){await playTransition(7000,"Loading...");st(2)}
  if(s<=2){const r=await showMessage([M1],[{t:"Okyyy ♡",v:"Okyyy"},{t:"Nope",v:"Nope",g:1}],2200,{a:"rise",d:"bow",r:"type"});await saveResponse("firstMessage",r);st(3)}
  if(s<=3){await playTransition(5000,"","petals");await showMessage([M2,{t:"Pakhiiii...! ♡",c:"sm"}],null,2500,{a:"unfold",d:"leaf",r:"words"});await saveResponse("secondMessage","Pakhiiii");st(4)}
  if(s<=4){await playTransition(5000,"","fly");const r=await showMessage([M3,{t:"Tmi ki amar ei kothata bisshah koro waisuuuu?",c:"sm"}],[{t:"Hmmm obossoi ♡",v:"Hmmm obossoi"},{t:"Ekdom e nah",v:"Ekdom e nah",g:1}],2200,{a:"slide",d:"heart",r:"lines"});await saveResponse("thirdMessage",r);st(5)}
- if(s<=5){document.body.classList.add("moon");await playTransition(6000,"","blur");await showMessage([M4],null,4500,{a:"focus",d:"heartcat",r:"blur"});document.body.classList.remove("moon");st(6)}
- if(s<=6){document.body.classList.add("dim");await playTransition(5000,"","night");await showMessage([{t:"Kivabe je ki hoiya gelo... haha ♡",p:2200},{t:"But at last...",p:1800},{t:"Valoi laglo tmk bisonn bahbe ♡",p:1500}],null,3500,{a:"fade",r:"neon"});st(7)}
+ if(s<=5){B.add("moon");await playTransition(6000,"","blur");await showMessage([M4],null,4500,{a:"focus",d:"heartcat",r:"blur"});B.remove("moon");st(6)}
+ if(s<=6){B.add("dim");await playTransition(5000,"","night");await showMessage([{t:"Kivabe je ki hoiya gelo... haha ♡",p:2200,c:"kv"},{t:"But at last...",p:1800,c:"kv2"},{t:"Valoi laglo tmk bisonn bahbe ♡",p:1500,c:"kv"}],null,3500,{a:"fade",r:"blur"});st(7)}
  if(s<=7){await playTransition(3500,"","glow");const r=await showMessage([{t:"Amk ki ask korte cao?",c:"card"}],YN,2200,{a:"rise",r:"type"});await saveResponse("askPermission",r);
-  if(r==="NO"){await showMessage([{t:"Thik ache... tmi jokhon ready hobe, ami ekhanei achi ♡",c:"sm"}],null,3500);st(9)}else st(8)}
- if(S.step===8){await playTransition(4000,"","bloom");buildQs();showScreen("qs");await new Promise(r=>{window.__qdone=r})}
- if(S.step===9){await playTransition(7000,"","rise");const r=await showMessage([{t:"Tmk bisonn bahbe valobashiiiiiii waisuuuuuuu.",p:1500},{t:"You know?",p:900}],YN,2200,{a:"fade",r:"neon"});await saveResponse("finalAnswer",r);st(10)}
- if(S.step>=10)ending()}
+  if(r==="NO"){await showMessage([{t:"Thik ache... tmi jokhon ready hobe, ami ekhanei achi ♡",c:"kv2"}],null,3500,{a:"fade",r:"blur"});st(9)}else st(8)}
+ if(S.step===8){B.remove("dim");await playTransition(4000,"","bloom");buildQs();showScreen("qs");let o;
+  for(;;){o=await new Promise(r=>{window.__qdone=r});try{await sendAnswers(o);break}catch(e){console.error(e);toast(OOPS);S.busy=false;$("#qsend").disabled=false;showScreen("qs")}}st(9)}
+ if(S.step===9){B.add("dim");await playTransition(5000,"","night");await showMessage([{t:"Kivabe je ki hoiya gelo... haha ♡",p:2200,c:"kv"},{t:"But at last...",p:1800,c:"kv2"},{t:"Valoi laglo tmk bisonn bahbe... ♡",p:1500,c:"kv"}],null,3500,{a:"fade",r:"blur"});st(10)}
+ if(S.step===10){B.add("dim");await playTransition(6000,"","rise");await showMessage([{t:"Tmk bisonn bahbe\nvalobashiiiiiii waisuuuuuuu.",c:"kv big",p:1800},{t:"You know?",c:"kv2",p:1200}],null,2500,{a:"focus",r:"blur"});st(11)}
+ if(S.step===11){B.add("dim");await playTransition(3500,"","fly");const r=await showMessage([{t:"Tumi ki eta jano?",c:"kv"}],YN,2200,{a:"fade",r:"blur"});await saveResponse("finalAnswer",r);st(12)}
+ if(S.step>=12){B.add("dim");if(s<12)await playTransition(8000,"","rise");ending()}}
+async function sendAnswers(o){showScreen("send");sfx.heart();await Promise.all([(async()=>{await set(ref(db,`submissions/${S.id}/questions`),o);await update(ref(db,`submissions/${S.id}/meta`),{updatedAt:Date.now()})})(),sleep(RM?800:3300)])}
 function buildQs(){$("#ql").innerHTML=S.q.map((q,i)=>`<div class="q"><p id="qt${i}">${esc(q)}</p><textarea id="qa${i}" aria-labelledby="qt${i}" rows="2" placeholder="Tomar answer..."></textarea></div>`).join("")}
-$("#qsend").onclick=async()=>{if(S.busy)return;const a=S.q.map((_,i)=>$("#qa"+i).value.trim());if(a.some(x=>!x)){$("#qmsg").textContent="Please answer all 5 ♡";return}
- S.busy=true;const b=$("#qsend");b.disabled=true;b.textContent="Sending...";sfx.click();const o={};S.q.forEach((q,i)=>o["q"+(i+1)]={question:q,answer:a[i]});
- try{await set(ref(db,`submissions/${S.id}/questions`),o);await update(ref(db,`submissions/${S.id}/meta`),{updatedAt:Date.now()});st(9);S.busy=false;window.__qdone()}
- catch(e){console.error(e);$("#qmsg").textContent=OOPS;b.disabled=false;b.textContent="Send to Waisuuu ♡";S.busy=false}};
-function ending(){document.body.classList.add("end");$("#vl").textContent="";showScreen("end");sfx.final();st(10)}
+$("#qsend").onclick=()=>{if(S.busy)return;const a=S.q.map((_,i)=>$("#qa"+i).value.trim());if(a.some(x=>!x)){$("#qmsg").textContent="Please answer all 5 ♡";return}
+ $("#qmsg").textContent="";S.busy=true;$("#qsend").disabled=true;sfx.click();const o={};S.q.forEach((q,i)=>o["q"+(i+1)]={question:q,answer:a[i]});window.__qdone(o)};
+function ending(){document.body.classList.add("end","dim");showScreen("end");sfx.final();st(12)}
 
 /* ---------- admin ---------- */
 let SUB={},aOn=false,known=-1,unsub;
@@ -391,5 +412,5 @@ function keydown(){}
 const safe=f=>{try{f()}catch(e){console.error(e)}};
 buildForm();showScreen("form");safe(buildVeil);safe(startRain);safe(startParticles);initFirebase().then(loadQuestions);
 safe(()=>{history.pushState(null,"",location.href);addEventListener("popstate",()=>history.pushState(null,"",location.href))});
-if(S.id&&S.step>=1){if(S.step<=1)S.step=2;S.busy=false;S.step>=10?ending():(S.step===8?(buildQs(),flow()):flow())}else showScreen("form");
+if(S.id&&S.step>=1){if(S.step<=1)S.step=2;S.busy=false;S.step>=12?ending():(S.step===8?(buildQs(),flow()):flow())}else showScreen("form");
 </script></body></html>
