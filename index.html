@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Waisuuu ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#cfe4f1;--olive:#6b7b4a;--cara:#b9854f;--warm:#fbf6ee;--off:#f5f1ea;--pink:#f6dde0;--ink:#3b3a2c}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow-x:hidden}
+body{font-family:Jost,"Noto Sans Bengali",sans-serif;color:var(--ink);background:linear-gradient(180deg,#d6e8f4 0%,#eef2ef 55%,var(--off) 100%)}
+#bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#bg::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 0,rgba(255,255,255,.8),transparent),radial-gradient(40% 30% at 85% 90%,var(--pink),transparent)}
+#dim{position:fixed;inset:0;background:#1d2a2c;opacity:0;transition:opacity 3s;z-index:1;pointer-events:none}
+body.dim #dim{opacity:.62}
+.tree{position:absolute;bottom:0;height:72vh;width:70px;transform-origin:50% 100%;animation:sway 9s ease-in-out infinite alternate}
+.tree.l{left:-6px}.tree.r{right:-6px;animation-delay:-4s}
+.ground{position:absolute;bottom:4px;left:0;right:0;text-align:center;letter-spacing:.9em;opacity:.55;color:var(--cara);white-space:nowrap;overflow:hidden;font-size:14px}
+.rd{position:absolute;top:-30px;width:1px;height:26px;background:linear-gradient(transparent,rgba(120,150,175,.45));animation:fall linear infinite}
+.pt{position:absolute;bottom:-40px;color:var(--cara);opacity:0;animation:rise linear infinite}
+#moon{position:absolute;top:8%;right:16%;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fffaf0,#f1e3c4);box-shadow:0 0 80px 20px rgba(255,244,214,.5);opacity:0;transition:opacity 3s}
+body.moon #moon{opacity:.9}
+@keyframes sway{to{transform:rotate(2.2deg)}}
+@keyframes fall{to{transform:translateY(110vh)}}
+@keyframes rise{0%{transform:translate(0,0) rotate(0);opacity:0}15%{opacity:.8}100%{transform:translate(var(--x),-112vh) rotate(200deg);opacity:0}}
+.screen{position:fixed;inset:0;display:none;padding:24px 16px;overflow-y:auto;z-index:3}
+.screen.on{display:flex;animation:in 1.4s ease both}
+@keyframes in{from{opacity:0;filter:blur(8px);transform:scale(1.03)}to{opacity:1;filter:none;transform:none}}
+.card{margin:auto;width:min(640px,100%);background:rgba(255,255,255,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.85);border-radius:30px;padding:34px 28px;box-shadow:0 24px 70px rgba(107,123,74,.18)}
+h1,h2{font-family:"Cormorant Garamond",serif;font-weight:400;color:var(--olive)}
+h1{font-size:clamp(2.2rem,8vw,3.2rem);text-align:center;letter-spacing:.02em}
+.sub{text-align:center;color:#7d7a68;font-size:.9rem;margin:6px 0 22px;font-weight:300}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.span{grid-column:1/-1}
+.f{position:relative}
+input,textarea{width:100%;padding:22px 14px 8px;border:1px solid rgba(107,123,74,.28);border-radius:14px;background:rgba(255,255,255,.72);font:inherit;color:var(--ink);transition:.3s;resize:vertical}
+textarea{min-height:76px}
+input:focus,textarea:focus{outline:none;border-color:var(--olive);box-shadow:0 0 0 4px rgba(107,123,74,.15)}
+label{position:absolute;left:15px;top:15px;font-size:.9rem;color:#7d7a68;pointer-events:none;transition:.25s}
+input:focus+label,textarea:focus+label,input:not(:placeholder-shown)+label,textarea:not(:placeholder-shown)+label{top:5px;font-size:.68rem;color:var(--olive)}
+.bad input,.bad textarea{border-color:#c98a8a}
+.btn{font:500 1rem Jost,sans-serif;padding:14px 30px;border:0;border-radius:999px;cursor:pointer;color:#fff;background:linear-gradient(135deg,#c79a63,var(--cara));box-shadow:0 10px 26px rgba(185,133,79,.32);transition:transform .35s,box-shadow .35s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(185,133,79,.4)}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.55;cursor:default;transform:none}
+.btn.ghost{background:rgba(255,255,255,.6);color:var(--olive);box-shadow:inset 0 0 0 1px rgba(107,123,74,.4)}
+:focus-visible{outline:3px solid var(--olive);outline-offset:3px}
+.msg{font-size:.88rem;text-align:center;color:#a35b5b;min-height:1.2em;margin-top:12px}
+.stage{margin:auto;width:min(720px,100%);text-align:center;padding:10px}
+.line{font-family:"Cormorant Garamond","Noto Sans Bengali",serif;font-size:clamp(1.45rem,5vw,2.3rem);line-height:1.5;white-space:pre-line;margin-bottom:14px;color:var(--ink)}
+.line.sm{font-size:clamp(1.05rem,3.6vw,1.4rem);color:var(--olive);font-style:italic}
+.typing::after{content:"|";margin-left:2px;color:var(--cara);animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hb{display:inline-block;color:#d98c9a;font-size:1.6rem;animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.25)}}
+#btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+body.dim .line{color:#fff}body.dim .line.sm{color:#e2edc9}
+#veil{position:fixed;inset:0;z-index:8;pointer-events:none;opacity:0;display:flex;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(circle,rgba(246,221,224,.85),rgba(207,228,241,.92))}
+#veil.go{animation:veil var(--d,4s) ease both}
+@keyframes veil{0%{opacity:0}30%,65%{opacity:1}100%{opacity:0}}
+#veil .big{font-size:42vmin;color:rgba(217,140,154,.35);filter:blur(1px);line-height:1}
+#veil.go .big{animation:grow var(--d,4s) ease-out both}
+@keyframes grow{from{transform:scale(.2)}to{transform:scale(1.25)}}
+#vl{font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:var(--olive);position:absolute;bottom:22%}
+#vl::after{content:"";animation:dots 1.4s steps(4) infinite}
+@keyframes dots{0%{content:""}25%{content:"."}50%{content:".."}75%{content:"..."}}
+.q{margin-bottom:12px;text-align:left}
+.q p{font-family:"Cormorant Garamond",serif;font-size:1.2rem;margin-bottom:6px;color:var(--olive)}
+.q textarea{padding:12px 14px}
+.endt{margin:auto;text-align:center;position:relative}
+.endt .bh{font-size:min(46vmin,300px);color:rgba(217,140,154,.55);line-height:1;animation:beat 4s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(246,200,210,.9))}
+.endt h1{font-size:clamp(2.6rem,11vw,5rem);margin-top:-8vmin;animation:in 3s ease both}
+.rays{position:fixed;inset:-50%;background:repeating-conic-gradient(rgba(255,255,255,.35) 0 6deg,transparent 6deg 18deg);animation:spin 120s linear infinite;z-index:1;pointer-events:none;opacity:0;transition:opacity 4s}
+body.end .rays{opacity:.6}
+@keyframes spin{to{transform:rotate(360deg)}}
+#snd{position:fixed;right:14px;bottom:14px;z-index:20;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);color:var(--olive);cursor:pointer;font-size:1.1rem;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+#toast{position:fixed;left:50%;bottom:70px;transform:translate(-50%,20px);background:var(--olive);color:#fff;padding:10px 20px;border-radius:999px;opacity:0;transition:.4s;z-index:99;pointer-events:none;font-size:.9rem;max-width:90vw;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+/* admin */
+#admin{position:fixed;inset:0;z-index:50;background:var(--warm);display:none;overflow-y:auto;padding:20px 16px 60px}
+#admin.on{display:block}
+.wrap{max-width:1000px;margin:0 auto}
+.ah{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px}
+.st{background:#fff;border-radius:18px;padding:14px;box-shadow:0 6px 20px rgba(107,123,74,.1)}
+.st b{display:block;font:600 1.5rem "Cormorant Garamond",serif;color:var(--olive);word-break:break-word}
+.st span{font-size:.78rem;color:#7d7a68}
+.ctl{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.ctl input,.ctl select{padding:11px 14px;flex:1;min-width:160px;border-radius:12px;border:1px solid rgba(107,123,74,.3);font:inherit;background:#fff}
+.sc{background:#fff;border-radius:20px;padding:16px;margin-bottom:12px;box-shadow:0 6px 20px rgba(107,123,74,.1)}
+.sc h3{font:600 1.3rem "Cormorant Garamond",serif;color:var(--ink)}
+.sc small{color:#7d7a68}
+.bd{display:inline-block;background:var(--blue);color:#37566b;border-radius:999px;padding:2px 10px;font-size:.75rem;margin:6px 4px 0 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mini{font:inherit;font-size:.82rem;padding:8px 14px;border-radius:999px;border:1px solid rgba(107,123,74,.4);background:#fff;color:var(--olive);cursor:pointer}
+.mini.red{color:#a35b5b;border-color:#d8aaaa}
+.mini.on{background:var(--olive);color:#fff}
+#modal{position:fixed;inset:0;background:rgba(40,50,40,.45);z-index:60;display:none;padding:16px;overflow-y:auto}
+#modal.on{display:flex}
+.mc{margin:auto;background:var(--warm);border-radius:24px;padding:22px;width:min(680px,100%)}
+.kv{display:grid;grid-template-columns:minmax(110px,170px) 1fr;gap:6px 12px;font-size:.92rem;margin-top:12px}
+.kv dt{color:#7d7a68}.kv dd{word-break:break-word;white-space:pre-wrap}
+.ed textarea{margin-bottom:10px;padding:12px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.card{padding:26px 18px}.kv{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.tree,.pt,.rd,.rays,.hb,.endt .bh{animation:none!important}.pt,.rd{display:none}}
+</style></head>
+<body>
+<div id="bg" aria-hidden="true">
+<svg class="tree l" viewBox="0 0 60 400"><path d="M30 400V110" stroke="#8a7a55" stroke-width="3"/><g fill="#7d8c58" opacity=".85"><ellipse cx="30" cy="85" rx="22" ry="48"/><ellipse cx="17" cy="150" rx="15" ry="32"/><ellipse cx="43" cy="195" rx="15" ry="32"/><ellipse cx="22" cy="245" rx="14" ry="28"/></g></svg>
+<svg class="tree r" viewBox="0 0 60 400"><path d="M30 400V110" stroke="#8a7a55" stroke-width="3"/><g fill="#7d8c58" opacity=".85"><ellipse cx="30" cy="85" rx="22" ry="48"/><ellipse cx="43" cy="150" rx="15" ry="32"/><ellipse cx="17" cy="195" rx="15" ry="32"/><ellipse cx="38" cy="245" rx="14" ry="28"/></g></svg>
+<div class="ground">✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁ ✿ ❀ ✿ ❁</div>
+<div id="moon"></div><div id="fx"></div></div>
+<div class="rays" aria-hidden="true"></div><div id="dim"></div>
+
+<main>
+<section id="form" class="screen"><div class="card">
+<h1>Waisuuu ♡</h1><p class="sub">Tomar kotha gulo ektu bolo...</p>
+<form id="pf" novalidate><div class="grid" id="fields"></div>
+<div class="msg" id="fmsg" role="alert"></div>
+<div style="text-align:center;margin-top:14px"><button class="btn" id="sub" type="submit">Submit ♡</button></div></form></div></section>
+
+<section id="stage" class="screen"><div class="stage"><div id="msgs" aria-live="polite"></div><div id="btns"></div></div></section>
+
+<section id="qs" class="screen"><div class="card"><h2 style="text-align:center;font-size:1.9rem;margin-bottom:16px">Tomar jonno amar 5 ta question ache... ♡</h2>
+<div id="ql"></div><div class="msg" id="qmsg" role="alert"></div>
+<div style="text-align:center;margin-top:10px"><button class="btn" id="qsend">Send to Waisuuu ♡</button></div></div></section>
+
+<section id="end" class="screen"><div class="endt"><div class="bh">♥</div><h1>Waisuuu ♡</h1><p class="line sm" style="margin-top:10px">Tmk bisonn bahbe valobashi ♡</p></div></section>
+</main>
+
+<div id="veil" aria-hidden="true"><div class="big">♥</div><div id="vl"></div></div>
+<button id="snd" aria-label="Toggle sound" aria-pressed="false">♪</button>
+<div id="toast" role="status"></div>
+
+<div id="admin" aria-label="Admin panel"><div class="wrap">
+<div class="ah"><h2 style="font-size:2rem">Waisuuu Admin</h2><button class="mini" id="aclose">Close ✕</button></div>
+<div class="stats" id="stats"></div>
+<div class="sc ed"><h3>Edit the 5 questions</h3><div id="qed" style="margin-top:10px"></div><button class="btn" id="qsave" style="padding:10px 22px">Save Questions</button></div>
+<div class="ctl"><input id="srch" placeholder="Search name, BF, future husband, ID" aria-label="Search"><select id="sort" aria-label="Sort"><option value="n">Newest</option><option value="o">Oldest</option></select></div>
+<div id="list"></div></div></div>
+<div id="modal"><div class="mc" role="dialog" aria-modal="true"><div id="mbody"></div></div></div>
+
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import{getDatabase,ref,set,update,get,push,remove,onValue}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt=t=>t?new Date(t).toLocaleString():"—";
+function toast(m,ms=2200){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),ms)}
+const OOPS="Something went wrong... Please try again ♡";
+
+/* ---------- state ---------- */
+const S={id:sessionStorage.wid||"",step:+sessionStorage.wstep||0,busy:false,q:{}};
+const st=n=>{S.step=n;sessionStorage.wstep=n};
+const DEFQ=["Question 1","Question 2","Question 3","Question 4","Question 5"];
+const F=[["name","Name"],["age","Age","number"],["bfName","BF Name"],["futureHusbandName","Future Husband Name"],["futureHusbandInfo","Future Husband সম্পর্কে কিছু কথা","area"],["personality","Personality","area"],["priority1","1st Priority Person"],["priority2","2nd Priority Person"],["priority3","3rd Priority Person"],["priority4","4th Priority Person"],["lastPerson","Last Person"],["favouriteColour","Favourite Colour"],["favouriteProduct","Favourite Product"],["favouriteFood","Favourite Food"]];
+
+/* ---------- Firebase ---------- */
+let db;
+function initFirebase(){try{const app=initializeApp({apiKey:"AIzaSyCXLAfJldSGWOMGJoPTR4dmm4v2f39XOHs",authDomain:"waisuuu.firebaseapp.com",projectId:"waisuuu",storageBucket:"waisuuu.firebasestorage.app",messagingSenderId:"698109897300",appId:"1:698109897300:web:1107e64ec41fd3746f1bc1",measurementId:"G-T886G4K0B9"});db=getDatabase(app,"https://waisuuu-default-rtdb.firebaseio.com")}catch(e){console.error("Firebase init",e)}}
+async function createSubmission(profile){const id=push(ref(db,"submissions")).key,n=Date.now();
+ await set(ref(db,"submissions/"+id),{profile,meta:{createdAt:n,updatedAt:n,userAgent:navigator.userAgent,submissionId:id}});return id}
+async function saveResponse(k,v){try{await update(ref(db,`submissions/${S.id}/responses`),{[k]:v});await update(ref(db,`submissions/${S.id}/meta`),{updatedAt:Date.now()})}catch(e){console.error(e);toast(OOPS)}}
+async function loadQuestions(){try{const s=await get(ref(db,"adminSettings/questions"));const v=s.val()||{};S.q=[1,2,3,4,5].map(i=>v["q"+i]||DEFQ[i-1])}catch(e){console.error(e);S.q=DEFQ}}
+async function saveQuestions(){const o={};document.querySelectorAll("#qed textarea").forEach((t,i)=>o["q"+(i+1)]=t.value.trim()||DEFQ[i]);
+ try{await set(ref(db,"adminSettings/questions"),o);toast("Questions saved ✓")}catch(e){console.error(e);toast(OOPS)}}
+
+/* ---------- sound ---------- */
+let AC,master,muted=false;
+function audio(){if(AC)return;try{AC=new(window.AudioContext||window.webkitAudioContext)();master=AC.createGain();master.gain.value=.12;master.connect(AC.destination);
+ const amb=AC.createGain();amb.gain.value=.05;amb.connect(master);[196,247,294,392].forEach((f,i)=>{const o=AC.createOscillator(),l=AC.createOscillator(),lg=AC.createGain();o.frequency.value=f;l.frequency.value=.05+i*.03;lg.gain.value=3;l.connect(lg);lg.connect(o.frequency);o.connect(amb);o.start();l.start()})}catch(e){console.warn(e)}}
+function tone(f,d=.15,v=.3,type="sine",w=0){if(!AC)return;const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime+w;o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(master);o.start(t);o.stop(t+d+.05)}
+const sfx={click:()=>tone(660,.12,.3),tick:()=>tone(1500+Math.random()*300,.03,.08),heart:()=>{tone(523,.5,.25);tone(784,.7,.2,"sine",.12)},whoosh:()=>tone(180,1.6,.15,"triangle"),final:()=>[523,659,784,1046].forEach((f,i)=>tone(f,1.6,.2,"sine",i*.25))};
+["pointerdown","keydown"].forEach(e=>addEventListener(e,audio,{once:true}));
+$("#snd").onclick=()=>{audio();muted=!muted;if(master)master.gain.value=muted?0:.12;$("#snd").setAttribute("aria-pressed",muted);$("#snd").textContent=muted?"✕":"♪"};
+
+/* ---------- ambience ---------- */
+function startRain(){const c=$("#fx");if(RM)return;for(let i=0;i<40;i++){const d=document.createElement("div");d.className="rd";d.style.cssText=`left:${Math.random()*100}%;animation-duration:${2.4+Math.random()*2}s;animation-delay:-${Math.random()*4}s;opacity:${.3+Math.random()*.5}`;c.appendChild(d)}}
+function startParticles(){const c=$("#fx"),g=["♡","✿","❀","🦋","♡","✿","·"];if(RM)return;for(let i=0;i<20;i++){const d=document.createElement("span");d.className="pt";d.textContent=g[i%g.length];d.style.cssText=`left:${Math.random()*100}%;font-size:${10+Math.random()*14}px;--x:${(Math.random()-.5)*160}px;animation-duration:${14+Math.random()*14}s;animation-delay:-${Math.random()*20}s`;c.appendChild(d)}}
+
+/* ---------- screens, transitions, text ---------- */
+function showScreen(id){document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("on",s.id===id))}
+async function playTransition(ms=4200,label=""){const v=$("#veil");v.classList.remove("go");void v.offsetWidth;v.style.setProperty("--d",ms+"ms");$("#vl").textContent=label;v.classList.add("go");sfx.whoosh();await sleep(RM?600:ms*.5)}
+async function type(el,txt){el.classList.add("typing");for(let i=0;i<txt.length;i++){el.textContent+=txt[i];if(i%3===0)sfx.tick();await sleep(RM?4:txt[i]==="\n"?420:52)}el.classList.remove("typing")}
+async function showMessage(lines,btns,hold=2200){showScreen("stage");const box=$("#msgs"),bb=$("#btns");box.innerHTML="";bb.innerHTML="";await sleep(900);
+ for(const l of lines){const o=typeof l==="string"?{t:l}:l,p=document.createElement("p");p.className="line "+(o.c||"");box.appendChild(p);await type(p,o.t);await sleep(o.p||800)}
+ const h=document.createElement("span");h.className="hb";h.textContent="♡";box.appendChild(h);sfx.heart();
+ if(!btns){await sleep(hold);return}await sleep(600);
+ return new Promise(res=>btns.forEach(b=>{const e=document.createElement("button");e.className="btn"+(b.g?" ghost":"");e.textContent=b.t;e.onclick=()=>{bb.querySelectorAll("button").forEach(x=>x.disabled=true);sfx.click();res(b.v)};bb.appendChild(e)}))}
+const YN=[{t:"YES ♡",v:"YES"},{t:"NO",v:"NO",g:1}];
+
+/* ---------- form ---------- */
+function buildForm(){$("#fields").innerHTML=F.map(([k,l,t])=>`<div class="f ${t==="area"?"span":""}">${t==="area"?`<textarea id="f_${k}" placeholder=" " required></textarea>`:`<input id="f_${k}" placeholder=" " ${t==="number"?'type="number" min="1" max="120" inputmode="numeric"':'type="text"'} required autocomplete="off">`}<label for="f_${k}">${l}</label></div>`).join("")}
+$("#pf").addEventListener("submit",async e=>{e.preventDefault();if(S.busy)return;const p={};let bad=null;
+ F.forEach(([k])=>{const el=$("#f_"+k),v=el.value.trim();p[k]=v;const w=el.parentElement;w.classList.toggle("bad",!v);el.setAttribute("aria-invalid",!v);if(!v&&!bad)bad=el});
+ if(bad){$("#fmsg").textContent="Please fill every field ♡";bad.focus();return}
+ $("#fmsg").textContent="";S.busy=true;const b=$("#sub");b.disabled=true;b.textContent="Saving...";sfx.click();
+ try{S.id=await createSubmission(p);sessionStorage.wid=S.id;st(1);flow()}catch(err){console.error(err);$("#fmsg").textContent=OOPS;b.disabled=false;b.textContent="Submit ♡";S.busy=false}});
+
+/* ---------- story flow ---------- */
+const M1="Tomar kache last ekta request, shthno pakhi jibon e ji, hoye jak na keno amk konodin chere jeyo na :)";
+const M2="Amar bisshash\nTumi amake kokhono chere jabe-!\nna Ar oi bisshash rakhar dayitto kintu tomar...!!";
+const M3="Tomar sathe sobar tulona hoy na,\ntumi to amar kache hazar noy lakhe noy puro prithibi jure ekjon...!!";
+const M4="Age kokhono vabini,\nhut kore eshe tumi amar life e etota important hoye jabe..!!";
+async function flow(){let s=S.step;
+ if(s<=1){await playTransition(7000,"Loading...");st(2)}
+ if(s<=2){const r=await showMessage([M1],[{t:"Okyyy ♡",v:"Okyyy"},{t:"Nope",v:"Nope",g:1}]);await saveResponse("firstMessage",r);st(3)}
+ if(s<=3){await playTransition(5000);await showMessage([M2,{t:"Pakhiiii...! ♡",c:"sm"}],null,2500);await saveResponse("secondMessage","Pakhiiii");st(4)}
+ if(s<=4){await playTransition(5000);const r=await showMessage([M3,{t:"Tmi ki amar ei kothata bisshah koro waisuuuu?",c:"sm"}],[{t:"Hmmm obossoi ♡",v:"Hmmm obossoi"},{t:"Ekdom e nah",v:"Ekdom e nah",g:1}]);await saveResponse("thirdMessage",r);st(5)}
+ if(s<=5){document.body.classList.add("moon");await playTransition(6000);await showMessage([M4],null,4500);document.body.classList.remove("moon");st(6)}
+ if(s<=6){document.body.classList.add("dim");await playTransition(5000);await showMessage([{t:"Kivabe je ki hoiya gelo... haha ♡",p:2200},{t:"But at last...",p:1800},{t:"Valoi laglo tmk bisonn bahbe ♡",p:1500}],null,3500);document.body.classList.remove("dim");st(7)}
+ if(s<=7){const r=await showMessage([{t:"Amk ki ask korte cao?"}],YN);await saveResponse("askPermission",r);
+  if(r==="NO"){await showMessage([{t:"Thik ache... tmi jokhon ready hobe, ami ekhanei achi ♡",c:"sm"}],null,3500);st(9)}else st(8)}
+ if(S.step===8){await playTransition(4000);buildQs();showScreen("qs");await new Promise(r=>{window.__qdone=r})}
+ if(S.step===9){await playTransition(7000);const r=await showMessage([{t:"Tmk bisonn bahbe valobashiiiiiii waisuuuuuuu.",p:1500},{t:"You know?",p:900}],YN);await saveResponse("finalAnswer",r);st(10)}
+ if(S.step>=10)ending()}
+function buildQs(){$("#ql").innerHTML=S.q.map((q,i)=>`<div class="q"><p id="qt${i}">${esc(q)}</p><textarea id="qa${i}" aria-labelledby="qt${i}" rows="2" placeholder="Tomar answer..."></textarea></div>`).join("")}
+$("#qsend").onclick=async()=>{if(S.busy)return;const a=S.q.map((_,i)=>$("#qa"+i).value.trim());if(a.some(x=>!x)){$("#qmsg").textContent="Please answer all 5 ♡";return}
+ S.busy=true;const b=$("#qsend");b.disabled=true;b.textContent="Sending...";sfx.click();const o={};S.q.forEach((q,i)=>o["q"+(i+1)]={question:q,answer:a[i]});
+ try{await set(ref(db,`submissions/${S.id}/questions`),o);await update(ref(db,`submissions/${S.id}/meta`),{updatedAt:Date.now()});st(9);S.busy=false;window.__qdone()}
+ catch(e){console.error(e);$("#qmsg").textContent=OOPS;b.disabled=false;b.textContent="Send to Waisuuu ♡";S.busy=false}};
+function ending(){document.body.classList.add("end");$("#vl").textContent="";showScreen("end");sfx.final();st(10)}
+
+/* ---------- admin ---------- */
+let SUB={},aOn=false,known=-1,unsub;
+const L=(s,k)=>Object.entries(s).map(([id,v])=>({id,...v}));
+function renderAdminDashboard(){const a=Object.entries(SUB).map(([id,v])=>({id,...v})),yn=x=>a.reduce((n,s)=>n+["askPermission","finalAnswer"].filter(k=>s.responses?.[k]===x).length,0);
+ const last=[...a].sort((x,y)=>(y.meta?.createdAt||0)-(x.meta?.createdAt||0))[0],act=Math.max(0,...a.map(s=>s.meta?.updatedAt||0));
+ const cards=[["Total submissions",a.length],["YES count",yn("YES")],["NO count",yn("NO")],["Question submissions",a.filter(s=>s.questions).length],["Latest submission",last?last.profile?.name||"—":"—"],["Latest activity",act?fmt(act):"—"]];
+ $("#stats").innerHTML=cards.map(([l,v])=>`<div class="st"><b>${esc(v)}</b><span>${l}</span></div>`).join("");
+ const q=$("#srch").value.toLowerCase().trim(),o=$("#sort").value;
+ let r=a.filter(s=>!q||[s.profile?.name,s.profile?.bfName,s.profile?.futureHusbandName,s.id].some(x=>String(x||"").toLowerCase().includes(q)));
+ r.sort((x,y)=>o==="n"?(y.meta?.createdAt||0)-(x.meta?.createdAt||0):(x.meta?.createdAt||0)-(y.meta?.createdAt||0));
+ $("#list").innerHTML=r.length?r.map(renderSubmission).join(""):`<div class="sc">No submissions yet.</div>`}
+function renderSubmission(s){const p=s.profile||{},r=s.responses||{};return`<div class="sc"><h3>${esc(p.name||"Unnamed")} <small>· ${esc(p.age||"")}</small></h3><small>BF: ${esc(p.bfName||"—")} · Future husband: ${esc(p.futureHusbandName||"—")} · ${fmt(s.meta?.createdAt)}</small><div>
+${["firstMessage","thirdMessage","askPermission","finalAnswer"].map(k=>r[k]?`<span class="bd">${k}: ${esc(r[k])}</span>`:"").join("")}${s.questions?'<span class="bd">Answers ✓</span>':""}</div>
+<div class="row"><button class="mini" data-a="view" data-id="${s.id}">View</button><button class="mini" data-a="p" data-id="${s.id}">Copy Profile</button><button class="mini" data-a="a" data-id="${s.id}">Copy Answers</button><button class="mini" data-a="q" data-id="${s.id}">Copy Q&amp;A</button><button class="mini" data-a="e" data-id="${s.id}">Copy Everything</button><button class="mini red" data-a="del" data-id="${s.id}">Delete</button></div></div>`}
+function copySubmission(id,kind){const s=SUB[id];if(!s)return;const p=s.profile||{},r=s.responses||{},q=s.questions||{},qs=[1,2,3,4,5].map(i=>q["q"+i]||{});
+ const prof=F.map(([k,l])=>`${l}: ${p[k]||""}`).join("\n"),ans=qs.map((x,i)=>`Answer ${i+1}: ${x.answer||""}`).join("\n"),qa=qs.map((x,i)=>`Question ${i+1}: ${x.question||""}\nAnswer: ${x.answer||""}`).join("\n\n"),
+ resp=Object.entries(r).map(([k,v])=>`${k}: ${v}`).join("\n");
+ const t={p:prof,a:ans,q:qa,e:`Waisuuu Submission\nID: ${id}\nCreated: ${fmt(s.meta?.createdAt)}\n\n${prof}\n\nResponses:\n${resp}\n\n${qa}`}[kind];
+ navigator.clipboard.writeText(t).then(()=>toast("Copied ✓"),()=>toast(OOPS))}
+async function deleteSubmission(id){if(!confirm("Delete this submission permanently?"))return;try{await remove(ref(db,"submissions/"+id));toast("Deleted ✓")}catch(e){console.error(e);toast(OOPS)}}
+function openDetail(id,tab="Profile"){const s=SUB[id];if(!s)return;const p=s.profile||{},r=s.responses||{},q=s.questions||{},m=s.meta||{};
+ const kv=o=>`<dl class="kv">${o.map(([a,b])=>`<dt>${esc(a)}</dt><dd>${esc(b||"—")}</dd>`).join("")}</dl>`;
+ const T={Profile:kv(F.map(([k,l])=>[l,p[k]])),Responses:kv(["firstMessage","secondMessage","thirdMessage","askPermission","finalAnswer"].map(k=>[k,r[k]])),
+  Questions:[1,2,3,4,5].map(i=>kv([[`Question ${i}`,q["q"+i]?.question],["→ Answer",q["q"+i]?.answer]])).join(""),
+  Timeline:kv([["Created",fmt(m.createdAt)],["Last update",fmt(m.updatedAt)],["ID",id],["Device",m.userAgent]])};
+ $("#mbody").innerHTML=`<div class="ah"><h3 style="font:600 1.5rem 'Cormorant Garamond',serif">${esc(p.name||"")}</h3><button class="mini" data-a="x">Close ✕</button></div><div class="row" style="margin:0 0 6px">${Object.keys(T).map(t=>`<button class="mini ${t===tab?"on":""}" data-a="tab" data-t="${t}" data-id="${id}">${t}</button>`).join("")}</div>${T[tab]}`;$("#modal").classList.add("on")}
+function loadSubmissions(){if(unsub)return;unsub=onValue(ref(db,"submissions"),s=>{SUB=s.val()||{};const n=Object.keys(SUB).length;if(known>=0&&n>known)toast("New submission ♡");known=n;if(aOn)renderAdminDashboard()},e=>{console.error(e);toast(OOPS)})}
+async function openAdmin(){aOn=true;$("#admin").classList.add("on");loadSubmissions();await loadQuestions();$("#qed").innerHTML=S.q.map((q,i)=>`<label for="eq${i}" style="position:static;display:block;margin:4px 0">Question ${i+1}</label><textarea id="eq${i}">${esc(q)}</textarea>`).join("");renderAdminDashboard()}
+$("#aclose").onclick=()=>{aOn=false;$("#admin").classList.remove("on")};
+$("#qsave").onclick=saveQuestions;$("#srch").oninput=$("#sort").onchange=renderAdminDashboard;
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const{a,id,t}=b.dataset;
+ if(a==="view")openDetail(id);else if(a==="tab")openDetail(id,t);else if(a==="x")$("#modal").classList.remove("on");else if(a==="del")deleteSubmission(id);else copySubmission(id,a)});
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")$("#modal").classList.remove("on")});
+addEventListener("keydown",e=>{if(e.key==="Escape"){$("#modal").classList.remove("on")}
+ if(e.key.toLowerCase()!=="p"||e.repeat||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const n=Date.now();if(n-(keydown.t||0)<500&&!aOn)openAdmin();keydown.t=n});
+function keydown(){}
+
+/* ---------- boot ---------- */
+initFirebase();startRain();startParticles();buildForm();loadQuestions();
+history.pushState(null,"",location.href);addEventListener("popstate",()=>history.pushState(null,"",location.href));
+if(S.id&&S.step>=1){if(S.step<=1)S.step=2;S.busy=false;S.step>=10?ending():(S.step===8?(buildQs(),flow()):flow())}else showScreen("form");
+</script></body></html>
